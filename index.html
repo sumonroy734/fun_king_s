@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Lock Screen</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css'>
+<link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
+<link rel='stylesheet' href='https://github.com/khadkamhn/lock-screen/raw/master/patt/pattern-lock.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="mhn-ui-wrap">
+	<div class="mhn-ui-page page-lock"> <!-- This will be shown first by JS -->
+		<div class="mhn-ui-date-time">
+			<div class="mhn-ui-time">6:02 PM</div>
+			<div class="mhn-ui-day">Friday</div>
+			<div class="mhn-ui-date">September 05, 2015</div>
+		</div>
+		<div class="mhn-lock-wrap">
+			<div class="mhn-lock-title" data-title="Draw a pattern to unlock"></div>
+			<div class="mhn-lock"></div>
+		</div>
+	</div>
+
+	<div class="mhn-ui-page page-home"> <!-- This will be hidden initially, shown after unlock -->
+		<div class="mhn-ui-app-time"> </div>
+		<div class="mhn-ui-app-title-head">
+			<span class="mhn-ui-page-title">Home</span>
+			
+			<div class="mhn-ui-filter">
+			</div>
+		</div>
+
+        <div class="content-after-unlock">
+            <div style="text-align: center;">
+                <img src="logo.png" alt="logo" class="main-logo-image">
+                <div class="caption-tick-group">
+                    <p class="logo-caption"> <B> <small>Sumon_roy_2010 & fun_king_S_2010</small> </b> </p> 
+                    <img src="tick.png" alt="tick" class="tick-icon" width="15">
+                </div>
+            </div>
+        
+            <h1>Welcome :</h1>
+            <h2> <small>  This is my joint Account. Everyone, please give this account a follower like and support me. </small> </h2>
+        
+            <a href="https://www.youtube.com/@SumonRoy-2010?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+              <button class="btn">click</button>
+            </a>
+
+            <!-- Added Lock Button Here -->
+            <div class="lock-button-container">
+                <span class="mhn-ui-bottom-btn ion-ios-locked" onclick="mhnUI.page.show('page-lock')"></span>
+            </div>
+        </div>
+
+		<div class="mhn-ui-dialog-wrap">
+			<div class="mhn-ui-dialog">
+				<div class="mhn-ui-dialog-title">Are you sure?</div>
+				<p>This application wants to open an external link. To confirm, please click on yes button.</p>
+				<a data-action="confirm" class="mhn-ui-dialog-btn" target="_blank">Yes</a>
+				<a data-action="cancel" class="mhn-ui-dialog-btn">No</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+  <script  src="./script.js"></script>
+
+</body>
+</html>
