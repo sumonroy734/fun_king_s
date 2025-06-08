@@ -1,6 +1,7 @@
-
+/* Pattern Lock Base Styles - Essential */
 .patt-holder{background:#3382c0;-ms-touch-action:none}.patt-wrap{position:relative;cursor:pointer}.patt-wrap li,.patt-wrap ul{list-style:none;margin:0;padding:0}.patt-circ{position:relative;float:left;box-sizing:border-box;-moz-box-sizing:border-box}.patt-circ.hovered{border:3px solid #090}.patt-error .patt-circ.hovered{border:3px solid #BA1B26}.patt-hidden .patt-circ.hovered{border:0}.patt-dots,.patt-lines{border-radius:5px;height:10px;position:absolute}.patt-dots{background:#FFF;width:10px;top:50%;left:50%;margin-top:-5px;margin-left:-5px}.patt-lines{background:rgba(255,255,255,.7);transform-origin:5px 5px;-ms-transform-origin:5px 5px;-webkit-transform-origin:5px 5px}.patt-hidden .patt-lines{display:none}
 
+/* General Styles */
 .mhn-ui-date-time,
 .text-center {
     text-align: center
@@ -28,7 +29,7 @@
 body {
     margin: 0;
     color: #fff;
-    background: #9b26af;
+    background: #9b26af; /* Fallback color */
     font: 300 14px/18px Roboto, sans-serif
 }
 a {
@@ -41,7 +42,7 @@ a:hover {
 .mhn-ui-wrap {
     width: 300px;
     height: 475px;
-    overflow: hidden;
+    overflow: hidden; /* Important: if button is fixed, this might hide it if not careful */
     position: relative;
     margin: 30px auto 0;
     background: url(2mabd.jpg) center no-repeat #2c3e50;      
@@ -56,10 +57,13 @@ a:hover {
     position: absolute;
     background: rgba(0, 0, 0, .4)
 }
+
+/* Lock Screen Specific Styles */
 .mhn-ui-date-time {
     color: #eee;
     z-index: 100;
-    position: relative
+    position: relative;
+    padding-top: 20px; 
 }
 .mhn-ui-date-time .mhn-ui-time {
     font-size: 28px;
@@ -74,13 +78,6 @@ a:hover {
     font-size: 18px;
     font-weight: 400
 }
-.mhn-ui-app-time {
-    padding: 0 5px;
-    font-size: 12px;
-    text-align: right;
-    margin: -15px -15px auto;
-    background: rgba(0, 0, 0, .6)
-}
 .mhn-lock-wrap {
     left: 0;
     right: 0;
@@ -89,7 +86,8 @@ a:hover {
 }
 .mhn-lock-wrap .mhn-lock-title {
     text-align: center;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, .5)
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .5);
+    margin-bottom: 10px; 
 }
 .mhn-lock-wrap .mhn-lock-success {
     color: transparent;
@@ -140,15 +138,18 @@ a:hover {
 .patt-success .patt-lines {
     background: rgba(75, 174, 79, .5)
 }
+
+/* Page Structure Styles */
 .mhn-ui-page {
     height: 100%;
-    z-index: 200;
-    display: none;
+    z-index: 200; /* Ensure pages are above the semi-transparent overlay */
+    display: none; /* Will be controlled by JS */
     padding: 15px;
-    position: relative
+    position: relative; /* Changed from absolute to relative or initial to behave better within wrap */
+    overflow-y: auto; 
 }
 .mhn-ui-page.page-lock {
-    position: initial
+    /* display: block; /* JS will handle initial display */
 }
 .mhn-ui-page .mhn-ui-app-title-head {
     padding: 15px;
@@ -156,6 +157,88 @@ a:hover {
     margin: 0 -15px;
     background: rgba(0, 0, 0, .4)
 }
+
+/* Home Page Content Area */
+.content-after-unlock {
+    padding-top: 15px;
+    padding-bottom: 60px; /* Add padding at the bottom if lock button is at the end of content flow */
+}
+
+.main-logo-image { 
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0; 
+    width: 200px; 
+}
+
+.caption-tick-group {
+    display: inline-flex;  
+    align-items: center;   
+    justify-content: center;
+    flex-wrap: nowrap;     
+    margin-top: 2px;       
+    position: relative; 
+    top:-28px;
+}
+
+.logo-caption { 
+    margin: 0;          
+    margin-right: 5px;  
+    margin-bottom: 20px;
+    font-size: 0.9em;
+    line-height: 1.2;   
+    padding: 0;         
+    white-space: nowrap;
+    align-self: center; 
+}
+.logo-caption b small { 
+    font-weight: bold;
+    display: inline; 
+}
+
+.tick-icon { 
+    width: 20px;       
+    height: auto;      
+    margin: 0;         
+    flex-shrink: 0;
+    display: block; 
+    align-self: center;  
+     position: relative; 
+    top:-9px;
+}
+
+/* Lock Button Styling */
+.lock-button-container {
+    text-align: center; /* Center the button if it's inline-block */
+    margin-top: 25px;
+    /* If you want it fixed at the bottom of .mhn-ui-page.page-home:
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    z-index: 210; 
+    */
+}
+
+.mhn-ui-bottom-btn {
+    display: inline-block; /* Or block if you want it on its own line */
+    font-size: 32px;       /* Size of the icon */
+    color: #fff;           /* Icon color */
+    padding: 10px;
+    border-radius: 50%;    /* Make it circular */
+    background-color: rgba(0,0,0,0.3); /* Optional background */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.mhn-ui-bottom-btn:hover {
+    background-color: rgba(255,255,255,0.2);
+    color: #eee;
+}
+
+
+/* Filter Styles (Kept as HTML is present) */
 .mhn-ui-page .mhn-ui-filter {
     float: right;
     position: relative
@@ -195,96 +278,16 @@ a:hover {
 .mhn-ui-page .mhn-ui-filter-list>div.active:hover {
     background: 0 0
 }
-.mhn-ui-page .mhn-ui-row {
-    margin-top: 15px
+.mhn-ui-app-time {
+    padding: 0 5px;
+    font-size: 12px;
+    text-align: right;
+    margin: -15px -15px 10px -15px; 
+    background: rgba(0, 0, 0, .6)
 }
-.mhn-ui-page .mhn-ui-row:after,
-.mhn-ui-page .mhn-ui-row:before {
-    content: '';
-    display: table
-}
-.mhn-ui-page .mhn-ui-row:after {
-    clear: both;
-    display: block
-}
-.mhn-ui-page .mhn-ui-col {
-    width: 25%;
-    float: left;
-    margin-bottom: 15px
-}
-.mhn-ui-bottom-link-bar {
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 15px;
-    position: absolute;
-    text-align: center
-}
-.mhn-ui-bottom-link-bar .mhn-ui-bottom-btn {
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    font-size: 28px;
-    line-height: 40px;
-    text-align: center;
-    border-radius: 50%;
-    display: inline-block
-}
-.mhn-ui-bottom-link-bar .mhn-ui-bottom-btn:nth-child(1) {
-    margin-right: 15px
-}
-.mhn-ui-bottom-link-bar .mhn-ui-bottom-btn:nth-child(2) {
-    margin-left: 15px
-}
-.mhn-ui-bottom-link-bar .mhn-ui-bottom-btn:hover {
-    color: #ccc;
-    background: rgba(0, 0, 0, .8)
-}
-.mhn-ui-icon {
-    text-align: center
-}
-.mhn-ui-icon span {
-    width: 55px;
-    height: 55px;
-    margin: auto;
-    display: block;
-    font-size: 28px;
-    cursor: pointer;
-    line-height: 55px;
-    text-align: center;
-    border-radius: 15px;
-    background: rgba(0, 0, 0, .3);
-    transition: background .4s ease-in-out 0s;
-    box-shadow: 0 -1px 0 rgba(255, 255, 255, .5) inset
-}
-.mhn-ui-icon .mhn-ui-icon-title {
-    margin-top: 5px;
-    cursor: default;
-    overflow: hidden;
-    font-size: 13px;
-    text-overflow: ellipsis;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, .5)
-}
-.mhn-ui-page.page-author img {
-    padding: 8px;
-    margin-top: 15px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, .7)
-}
-.mhn-ui-credit {
-    padding: 5px;
-    font-size: 13px;
-    margin-top: 15px;
-    background: rgba(0, 0, 0, .2);
-    border: 1px solid rgba(0, 0, 0, .2)
-}
-.mhn-ui-credit p {
-    margin: 0;
-    color: #aaa
-}
-.mhn-ui-credit a {
-    font-weight: 500
-}
+
+
+/* Dialog Styles */
 .mhn-ui-dialog-wrap {
     top: 0;
     left: 0;
@@ -298,30 +301,49 @@ a:hover {
 .mhn-ui-dialog {
     padding: 15px;
     background: #000;
-    margin: 50% 0 auto
+    margin: 15px; 
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 270px; 
+    margin-left: auto;
+    margin-right: auto;
 }
 .mhn-ui-dialog .mhn-ui-dialog-title {
     font-size: 18px;
-    font-weight: 500
+    font-weight: 500;
+    margin-bottom: 10px; 
+}
+.mhn-ui-dialog p {
+    margin-bottom: 15px; 
 }
 .mhn-ui-dialog .mhn-ui-dialog-btn {
-    padding: 5px;
+    padding: 8px 12px; 
     min-width: 65px;
     cursor: pointer;
     margin-right: 10px;
     text-align: center;
     display: inline-block;
-    border: 2px solid rgba(255, 255, 255, .8)
+    border: 2px solid rgba(255, 255, 255, .8);
+    border-radius: 4px; 
+}
+.mhn-ui-dialog .mhn-ui-dialog-btn:last-child {
+    margin-right: 0;
 }
 .mhn-ui-dialog .mhn-ui-dialog-btn:hover {
     background: #009688;
-    text-decoration: none
+    text-decoration: none;
+    border-color: #009688;
 }
+
+/* Info Styles (if used) */
 .mhn-ui-info {
     margin: 30px 0;
     font-size: 16px;
     text-align: center
 }
+
+/* Animations (Core) */
 .mhn-ui-date,
 .mhn-ui-time {
     -webkit-animation: zoomIn 1s;
@@ -353,48 +375,20 @@ a:hover {
     -webkit-animation: fadeInUp .8s;
             animation: fadeInUp .8s
 }
-.mhn-ui-icon span {
-    -webkit-animation: zoomIn .6s;
-            animation: zoomIn .6s
-}
-.mhn-ui-bottom-btn {
-    -webkit-animation: bounceInUp .8s;
-            animation: bounceInUp .8s
-}
-.mhn-ui-credit-list .mhn-ui-credit:nth-child(1) {
-    -webkit-animation: fadeInUp .4s;
-            animation: fadeInUp .4s
-}
-.mhn-ui-credit-list .mhn-ui-credit:nth-child(2) {
-    -webkit-animation: fadeInUp .5s;
-            animation: fadeInUp .5s
-}
-.mhn-ui-credit-list .mhn-ui-credit:nth-child(3) {
-    -webkit-animation: fadeInUp .6s;
-            animation: fadeInUp .6s
-}
-.mhn-ui-credit-list .mhn-ui-credit:nth-child(4) {
-    -webkit-animation: fadeInUp .7s;
-            animation: fadeInUp .7s
-}
-.mhn-ui-credit-list .mhn-ui-credit:nth-child(5) {
-    -webkit-animation: fadeInUp .8s;
-            animation: fadeInUp .8s
-}
+
+/* Centering and Background for overall page */
 html, body {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh; 
   background-color: #161616;
-  overflow: hidden;
-  /* transform: scale(1.5); */
+  overflow: hidden; 
 }
 
-
-
-/* button */
+/* Button Styles */
 .btn {
-  margin: 100px;
+  margin: 20px auto; 
   padding: 10px 40px;
   border: none;
   outline: none;
@@ -403,6 +397,8 @@ html, body {
   position: relative;
   z-index: 0;
   border-radius: 12px;
+  display: block; 
+  width: fit-content; 
 }
 .btn::after {
   content: "";
@@ -415,7 +411,6 @@ html, body {
   top: 0;
   border-radius: 5px;
 }
-/* glow */
 .btn::before {
   content: "";
   background: linear-gradient(
@@ -426,7 +421,6 @@ html, body {
   position: absolute;
   top: -2px;
   left: -2px;
-  float: center;
   background-size: 400%;
   z-index: -1;
   width: calc(100% + 4px);
@@ -444,22 +438,18 @@ html, body {
   100% {background-position: 0 0;}
 }
 
-/* hover */
 .btn:hover::before {
   opacity: 1;
 }
-
 .btn:active:after {
   background: transparent;
 }
-
 .btn:active {
   color: #000;
   font-weight: bold;
 }
 
-
-
+/* Heading Styles */
 h1 {
   margin-top: 0px;
   margin-bottom: 10px;
@@ -468,45 +458,13 @@ h1 {
   background: linear-gradient(to right, #f702c2, #FFA500, #FAEB36, #f5f50e, #afe812, #d02098, #70369D, #bd4569, #ff5722);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-align: center; 
 }
-
-
-p1 {
-    justify-content: center;
-    top: -66px;
-    left: -22222px;
-    float: center;
+h2 {
+    text-align: center; 
+    margin-bottom: 20px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+h2 small {
+    font-size: 0.9em;
+    color: #eee; 
+}
